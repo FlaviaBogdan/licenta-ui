@@ -1,0 +1,76 @@
+{
+    "videos" : [
+        {
+            "link": "https://www.youtube.com/embed/hF8F3wm9DUc",
+            "key": "1",
+            "title": "Methods in Java - Understanding Java Methods and Their Need",
+            "description": "An explanation of Methods in Java. It also explains how a method returns values and how to write your own methods. In this lesson, Gaurav explains all about the Java Methods and their need. He then moves on to teach you to create methods and finally show you how to return values from methods. Must watch for all."
+        },
+        {
+            "link": "https://www.youtube.com/embed/o5dcpcuyuIA",
+            "key": "2",
+            "title": "Java Tutorial For Beginners 16 - Introduction to Methods",
+            "description": "Searches related to introduction to method java introduction to java pdf"
+        },
+        {
+            "link": "https://www.youtube.com/embed/OHw2t8BaIUg",
+            "key": "3",
+            "title": "Learn Java Tutorial for Beginners: Classes and Objects",
+            "description": "et complete courses at http://courses.caveofprogramming.com. A basic tutorial on using classes and objects in Java, plus some discussion of what classes and objects actually are. This tutorial focuses on classes containing only data; next time I'll look at methods"
+        },
+        {
+            "link": "https://www.youtube.com/embed/AdA3eYjIfLo",
+            "key": "4",
+            "title": "Instance Variable - Intro to Java Programming",
+            "description": "This video is part of an online course, Intro to Java Programming. Check out the course here: https://www.udacity.com/course/cs046."
+        },
+        {
+            "link": "https://www.youtube.com/embed/_ZSo-9hKRPk",
+            "key": "5",
+            "title": " Identifiers in Java",
+            "description": "http://www.hubberspot.com Do watch video in high quality ..."
+        },
+        {
+            "link": "https://www.youtube.com/embed/0JBqL99wjSE",
+            "key": "6",
+            "title": "Java Tutorial For Beginners 23 - Public, Private, Protected and this (Java Access Modifiers)",
+            "description": "package protected java java package visibilityjava protected visibility"
+        },
+        {
+            "link": "https://www.youtube.com/embed/UumX4mQKQlA",
+            "key": "13",
+            "title": "Learn Java Tutorial for Beginners: Interfaces",
+            "description": "Get complete courses at http://courses.caveofprogramming.com. An introduction to interfaces in Java. This tutorial covers most of the mechanics of interfaces, which are really quite a simple idea."
+        },
+        {
+            "link": "https://www.youtube.com/embed/TmM9XAIKa-Y",
+            "key": "8",
+            "title": "Arrays in Java Part - 1 | Introduction to Java Arrays - Java Programming - Java Edureka",
+            "description": "Java Certification Training: https://www.edureka.co/java-j2ee-soa-... This Edureka video on “Arrays in Java Part - 1”  will talk about one of the pillars of Java fundamentals i.e Arrays. It will also take you through the various types of arrays in Java and how they are used to achieve various functionalities. "
+        },
+        {
+            "link": "https://www.youtube.com/embed/5VyDsO0mFDU",
+            "key": "9",
+            "title": "Java Basics - Enums Part1",
+            "description": "This video explains what enums are. It provides a number of examples to illustrates how simple enums (enums without class members) are declared and used and it shows how they are different from 'regular' classes."
+        },
+        {
+            "link": "https://www.youtube.com/embed/f8lCiYquj28",
+            "key": "10",
+            "title": " Java Tutorial for Beginners 1 - Basic keywords explained",
+            "description": "Go to http://java8course.com for additional material like the slides, a pdf, exercises and other videos."
+        },
+        {
+            "link": "https://www.youtube.com/embed/ceYcTSjp8k8",
+            "key": "11",
+            "title": "Java - Comments",
+            "description": "Java - Comments watch more videos at https://www.tutorialspoint.com/videot... Lecture By: Mr. Tushar Kale, Tutorials Point India Private Limited"
+        },
+        {
+            "link": "https://www.youtube.com/embed/_9R_in_7cT4",
+            "key": "12",
+            "title": "Java Tutorial | Inheritance",
+            "description": "Follow Navin Reddy on Instagram: https://www.instagram.com/navinreddy20"
+        }
+    ]
+}

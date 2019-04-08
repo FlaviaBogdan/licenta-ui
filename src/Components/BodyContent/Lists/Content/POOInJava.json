@@ -1,0 +1,16 @@
+{
+    "chapters" : [
+        {
+            "chapterName": "Principalele principii",
+            "subChapters": ["Mostenire", "Suprascriere", "Polimorfism", "Abstractizare", "Incapsulare"]
+        },
+        {
+            "chapterName": "Interfete",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Pachete",
+            "subChapters": []
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "chapters" : [
+        {
+            "chapterName": "Structuri de date",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Colectii",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Generice",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Serializare",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Web",
+            "subChapters": ["Retelistica", "Trimiterea e-mailurilor","Fire de executie multiple", "Applets"]
+        }
+    ]
+}

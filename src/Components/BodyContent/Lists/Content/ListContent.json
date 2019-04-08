@@ -1,0 +1,48 @@
+{
+    "chapters" : [
+        {
+            "chapterName": "Despre Java",
+            "subChapters": ["Ce este Java?", "Instalare"]
+        },
+        {
+            "chapterName": "Sintaxa",
+            "subChapters": ["Sintaxa de baza", "Obiecte si Clase", "Constructori"]
+        },
+        {
+            "chapterName": "Date, variabile si modificatori",
+            "subChapters": ["Tipuri de date", "Tipuri de variabile", "Tipuri de modificatori"]
+        },
+        {
+            "chapterName": "Operatori",
+            "subChapters": []
+        },
+        {
+            "chapterName": "FOR si IF",
+            "subChapters": ["Controlul buclei - FOR", "Instructiunea IF"]
+        },
+        {
+            "chapterName": "Tipuri de date - Detaliat",
+            "subChapters": ["Numere", "Caractere", "Siruri de caractere","Siruri","Timp si data"]
+        },
+        {
+            "chapterName": "Expresii regulate",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Metode",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Fisiere si I/O",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Exceptii",
+            "subChapters": []
+        },
+        {
+            "chapterName": "Clase interioare",
+            "subChapters": []
+        }
+    ]
+}
