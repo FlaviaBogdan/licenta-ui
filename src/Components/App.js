@@ -6,6 +6,7 @@ import DarkTheme from "../Theme/DarkTheme"
 import RegisterForm from './Authentification/RegisterForm'
 import DialogRegister from './Dialogs/DialogRegister'
 import Webcam from "react-webcam";
+import Profile from './Profile/Profile';
 
 
 export default class extends Component{
