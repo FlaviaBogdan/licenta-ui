@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import DialogRegister from '../Dialogs/DialogRegister'
 import DialogLogin from '../Dialogs/DialogLogin'
-import Footer from './Footer'
+import FooterBlack from './FoooterBlack'
 import Menu from '../BodyContent/Menu'
 const styles = theme => ({
 
@@ -351,49 +351,7 @@ class Home extends React.Component {
 
           </Grid>
         </div>
-        <footer className={classes.footer}>
-          <Grid container spacng={24}>
-            <Grid item xs style={{ textAlign: "center" }}>
-              <Typography variant="h6" gutterBottom style={{ color: 'white' }}>
-                Contacteaza-ne
-              </Typography>
-              <Typography style={{ color: 'white' }}>Nume: Bogdan Flavia</Typography>
-              <Typography style={{ color: 'white' }}>E-mail: flavia.bogdan@gmail.com</Typography>
-              <Typography style={{ color: 'white' }}>Acasa: +40 727 437 303</Typography>
-              <Typography style={{ color: 'white' }}>Mobil: +40 752 164 052</Typography>
-            </Grid>
-            <Grid item xs style={{ textAlign: "center" }}>
-              <Typography variant="h6" gutterBottom style={{ color: 'white' }}>
-                Adresa
-              </Typography>
-              <Typography style={{ color: 'white' }}>Romania, judet Timis</Typography>
-              <Typography style={{ color: 'white' }}>Timisoara, strada Aurel Vlaicu</Typography>
-              <Typography style={{ color: 'white' }}>nr 73, corp B</Typography>
-              <Typography style={{ color: 'white' }}>etaj 4</Typography>
-            </Grid>
-            <Grid item xs style={{ textAlign: "center" }}>
-              <Typography variant="h6" gutterBottom style={{ color: 'white' }}>
-                Legal
-              </Typography>
-              <Typography style={{ color: 'white' }}>Drepturi de autor</Typography>
-              <Typography style={{ color: 'white' }}>&copy; 2018 LearnJava.com</Typography>
-              <Typography style={{ color: 'white' }}>Toate drepturile rezervate</Typography>
-              <Typography style={{ color: 'white' }}>Termeni si conditii</Typography>
-            </Grid>
-            <Grid item xs style={{ textAlign: "center" }}>
-              <Typography variant="h6" gutterBottom style={{ color: 'white' }}>
-                Urmareste-ne
-              </Typography>
-              {/* <img src={require('./Images/twitter2.png')} style={{width:'50px', height:'50px'}}  /> */}
-              <Button target="_blank" href="https://www.facebook.com/">
-              <img src={require('./Images/facebook3.png')} style={{ width: '60px', height: '60px' }} />
-              </Button>
-              <Button target="_blank" href="https://www.instagram.com/?hl=ro">
-              <img src={require('./Images/instagram.png')} style={{ width: '60px', height: '60px' }} />
-              </Button>
-            </Grid>
-          </Grid>
-        </footer>
+        <FooterBlack/>
         </div>
         <Switch>  
             <Route path='/invata/' render={(props) => <Menu {...props} test="{this.state.registerDialogOpen}" />}  />

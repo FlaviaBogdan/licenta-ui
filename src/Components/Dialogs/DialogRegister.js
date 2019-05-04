@@ -34,7 +34,7 @@ class DialogRegister extends React.Component {
           aria-describedby="alert-dialog-description"
         >
           <DialogContent>
-            <RegisterForm />
+            <RegisterForm onClose={this.handleClose}/>
           </DialogContent>
         </Dialog>
       </div>

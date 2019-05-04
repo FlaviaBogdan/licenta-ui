@@ -10,6 +10,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import LearningMenu from './Menu'
+import Profile from '../Layouts/Profile'
 import HomePage from '../Layouts/Home'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import DialogLogin from '../Dialogs/DialogLogin'
@@ -142,6 +143,7 @@ class ClippedDrawer extends React.Component {
             <Button color="inherit" component={Link} to="/">Acasa</Button>
             <Button color="inherit" component={Link} to="/invata/">Invata</Button>
             <Button color="secondary" onClick={() => this.openRegisterForm("loginDialogOpen")}>Autentificare</Button>
+            <Button color="inherit" component={Link} to="/profil/">Profil</Button>
             {this.state.registerDialogOpen && <DialogRegister open={this.state.registerDialogOpen} callback={(open) => {this.setState({registerDialogOpen:open})}} />}
             {this.state.loginDialogOpen && <DialogLogin open={this.state.loginDialogOpen} callback={(open,openRegistrationForm) => this.callbackFromDialogLogin(open,openRegistrationForm)} />}
             <div className={classes.search}>
@@ -161,7 +163,9 @@ class ClippedDrawer extends React.Component {
         <Switch>
     
     <Route exact path='/'  component={HomePage} />
+    <Route path='/profil/' component={Profile} />
     <Route path='/invata/' component={LearningMenu} />
+   
 
 </Switch> 
       </div>

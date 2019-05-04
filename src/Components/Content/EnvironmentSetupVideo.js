@@ -23,7 +23,7 @@ const styles = theme => ({
     },
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
+    padding: `${theme.spacing.unit * 5}px 0`,
   },
   card: {
     height: '100%',
@@ -48,15 +48,33 @@ const styles = theme => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 
-const videos = require('./YoutubeContent/VideosES.json');
+let videos = null;
 
-function Album(props) {
-  const { classes } = props;
+class Album extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(this.props.videoContent);
+    if(this.props.videoContent === "Sintaxa de baza"){
+      videos = require('./YoutubeContent/VideosES.json');
+    }
+    if(this.props.videoContent === "Mostenire"){
+      videos = require('./YoutubeContent/VideosInheritance.json');
+    }
+    if(this.props.videoContent === "Structuri de date"){
+      videos = require('./YoutubeContent/VideosDataStructures.json');
+    }
+
+  }
+  render(){
+  const { classes } = this.props;
 
   return (
     <React.Fragment>
       <CssBaseline />
       <main>
+        <Typography variant="h5" gutterBottom paragraph>
+          Video-uri despre: {this.props.videoContent}
+        </Typography>
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid container spacing={24}>
             {videos.videos.map(videoItem => (
@@ -86,6 +104,7 @@ function Album(props) {
       </main>
     </React.Fragment>
   );
+}
 }
 
 Album.propTypes = {

@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Footer  from '../Layouts/Footer';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import CustomList from './Lists/List'
+import FooterBlack from '../Layouts/FoooterBlack'
 const drawerWidth = 250;
 
 const dataChapters = require('../BodyContent/Lists/Content/ListContent.json');
@@ -34,7 +35,7 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSubchapter: "CACA",
+      selectedSubchapter: "Ce este Java?",
 
     };
     this.selectedSubchapter = this.selectedSubchapter.bind(this);
@@ -87,6 +88,7 @@ class Menu extends React.Component {
           <div className={classes.toolbar} />
           <Footer chapter={this.state.selectedSubchapter} />
         </main>
+  
         </React.Fragment>
     )
   }

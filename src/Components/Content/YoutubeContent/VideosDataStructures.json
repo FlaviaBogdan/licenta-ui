@@ -1,0 +1,58 @@
+{
+    "videos" : [
+        {
+            "link": "https://www.youtube.com/embed/uFGrL5vyp54",
+            "key": "1",
+            "title": "Java Programming Tutorial  - Enumeration",
+            "description": "An explanation of Enumeration in Java. It also explains how a method returns values and how to write your own methods. In this lesson, Gaurav explains all about the Java Methods and their need. He then moves on to teach you to create methods and finally show you how to return values from methods. Must watch for all."
+        },
+        {
+            "link": "https://www.youtube.com/embed/HOm2RFwc6LU",
+            "key": "2",
+            "title": "Tutorial-BitSet",
+            "description": "This video gives basic idea about how to implement BitSet in java"
+        },
+        {
+            "link": "https://www.youtube.com/embed/nuCb3wTjJNI",
+            "key": "3",
+            "title": "Java BitSet Manipulation",
+            "description": "In this Java programming tutorial we're going to look at bit manipulation using the Java Integer class. Bit manipulation is used in error correction, compression, encryption and optimization algorithms. It's one of those things that's really important, or you won't see it at all."
+        },
+        {
+            "link": "https://www.youtube.com/embed/4BWmtZQSedU",
+            "key": "4",
+            "title": "Vector vs ArrayList in Java",
+            "description": "what is vector? Vector introduced in jdk 1.0. Vector is type of list which implement list same as array list. It is dynamic array in which you can increased size of array. vector increased size by 100%.."
+        },
+        {
+            "link": "https://www.youtube.com/embed/RQP1HIOnV0A",
+            "key": "5",
+            "title": "Java Tutorial - 25 - Basics of Vectors in Java",
+            "description": "In this video the basics of Vectors in Java will be explained."
+        },
+        {
+            "link": "https://www.youtube.com/embed/fptlqsesjxY",
+            "key": "6",
+            "title": "Stack Implementation using Java Part 1 | Push Pop Peek Methods",
+            "description": "Stack : It is Last-In-First-Out (LIFO) DS The name stack for this type of structure comes from the analogy to a set of physical items stacked on top of each other, which makes it easy to take an item off the top of the stack, "
+        },
+        {
+            "link": "https://www.youtube.com/embed/nbDhDMYxUEw",
+            "key": "7",
+            "title": "Day 8 of Code: Dictionaries & Hash Maps!",
+            "description": "Welcome to Day 8! Learn about dictionaries and hashmaps in this video! Got a question? Leave a comment down below! "
+        },
+        {
+            "link": "https://www.youtube.com/embed/QpWBHIOjM6I",
+            "key": "8",
+            "title": "Using Properties in Java ",
+            "description": "Using the Properties class to save and load program configuration information in Java."
+        },
+        {
+            "link": "https://www.youtube.com/embed/B4vqVDeERhI",
+            "key": "9",
+            "title": "Java Hash Table",
+            "description": "elcome to my Java Hash Table tutorial. A Hash Table is a data structure offers fast insertion and searching capabilities."
+        }
+    ]
+}

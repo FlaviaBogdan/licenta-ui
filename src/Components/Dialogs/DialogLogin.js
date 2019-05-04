@@ -36,7 +36,7 @@ class DialogLogin extends React.Component {
           aria-describedby="alert-dialog-description"
         >
           <DialogContent>
-            <LoginForm registerCallback={()=>{this.setState({open:false}); this.props.callback(false, true)}}/>
+            <LoginForm onClose={this.handleClose} registerCallback={()=>{this.setState({open:false}); this.props.callback(false, true)}}/>
           </DialogContent>
         </Dialog>
       </div>

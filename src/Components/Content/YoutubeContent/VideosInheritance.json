@@ -1,0 +1,58 @@
+{
+    "videos" : [
+        {
+            "link": "https://www.youtube.com/embed/9JpNY-XAseg",
+            "key": "1",
+            "title": "Java Programming Tutorial  - Inheritance",
+            "description": "An explanation of Inheritance in Java. It also explains how a method returns values and how to write your own methods. In this lesson, Gaurav explains all about the Java Methods and their need. He then moves on to teach you to create methods and finally show you how to return values from methods. Must watch for all."
+        },
+        {
+            "link": "https://www.youtube.com/embed/_9R_in_7cT4",
+            "key": "2",
+            "title": "Java Tutorial | Inheritance",
+            "description": "Subscribe to our other channel: Navin Reddy : https://www.youtube.com/channel/UCxmk... Telusko Hindi : https://www.youtube.com/channel/UCitz..."
+        },
+        {
+            "link": "https://www.youtube.com/embed/0PPKccntohM",
+            "key": "3",
+            "title": "Inheritance Part 1: Super and Sub Classes (Java)",
+            "description": "The video defines inheritance in Java.  It also lays out what a superclass and subclass is.  It shows how inheritance creates an is-a relationship."
+        },
+        {
+            "link": "https://www.youtube.com/embed/GDG-wzEZW8E",
+            "key": "4",
+            "title": "Inheritance Part 2: Extending Classes (Java)",
+            "description": "The video looks at how basic inheritance is coded in Java.  It shows the use of the keyword extends.  It also presents the case for using inheritance."
+        },
+        {
+            "link": "https://www.youtube.com/embed/gWpg3yMiL0M",
+            "key": "5",
+            "title": "Inheritance & Polymorphism - Java Programming Tutorial",
+            "description": "his tutorial does a comparative analysis between structured (procedural) programming and Object Oriented Programming (OOPs). It also explains the basic principles of Inheritance and Polymorphism with example."
+        },
+        {
+            "link": "https://www.youtube.com/embed/lz1Cx6GzOuc",
+            "key": "6",
+            "title": "Java Tutorial For Beginners 25 - Inheritance in Java",
+            "description": "java inheritance constructor, java inheritance vs interface, java inheritance static variablesy"
+        },
+        {
+            "link": "https://www.youtube.com/embed/7GwptabrYyk",
+            "key": "7",
+            "title": "Java OOPs Concepts | Object Oriented Programming | Java Tutorial For Beginners | Edureka",
+            "description": "This Edureka video on “Java OOPs Concepts”  will give you a brief insight about various fundamentals of Object Oriented Programming in Java like Inheritance, Abstraction, "
+        },
+        {
+            "link": "https://www.youtube.com/embed/Tbnkxr0EICc",
+            "key": "8",
+            "title": "Inheritance Part 3: Constructors (Java)",
+            "description": "The video looks at the roll constructors play in inheritance.  It shows how only one constructor is called in the runner yet two are used.  It show how the needs of the superclass constructor are met first and then the subclass."
+        },
+        {
+            "link": "https://www.youtube.com/embed/p8MCAyq8oKg",
+            "key": "9",
+            "title": "Hierarchical Inheritance in Java (HINDI)",
+            "description": "This video explains what hierarhical inheritance is."
+        }
+    ]
+}

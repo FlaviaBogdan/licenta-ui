@@ -8,14 +8,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import { withRouter } from 'react-router-dom'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import { login } from '../../utils/UserFunctions';
 
 const styles = theme => ({
   main: {
     width: 'auto',
-    display: 'block', 
+    display: 'block',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -44,53 +46,95 @@ const styles = theme => ({
   },
 });
 
-function SignIn(props) {
-  const { classes } = props;
 
-  return (
-    <main className={classes.main}>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Autentificare
+class LoginForm extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  changeField = (event) => {
+    console.log(event.target.id);
+    let userToLogin = { ...this.state };
+    userToLogin[event.target.id] = event.target.value;
+    this.setState({
+      ...userToLogin
+    })
+  }
+
+  onSubmit= (e) =>{
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    login(user).then(res => {
+      if (res === 200) {
+        this.props.history.push(`/`)
+        this.props.onClose(true);
+      } else if (res === 401) {
+        alert("Wrong username or password");
+      } else {
+        alert("An error ocurred");
+      }
+    })
+
+    e.preventDefault();
+  }
+
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <main className={classes.main}>
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Autentificare
         </Typography>
-        <form className={classes.form}>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="email">Adresa de e-mail</InputLabel>
-            <Input id="email" name="email" autoComplete="email" autoFocus />
-          </FormControl>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Parola</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="secondary" />}
-            label="Aminteste-ti user-ul si parola mea"
-          />
-          <Typography variant="subtitle1" gutterBottom >
-            Daca nu ai un cont, 
-            <Button className={classes.button} style={{textTransform: 'none', textAlign:"center"}} color="secondary" onClick={()=>{props.registerCallback()}}>inregistreaza-te aici.</Button>
-          </Typography>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="secondary"
-            className={classes.submit}
-          >
-            Autentifica-te
+        <form className={classes.form} onSubmit={this.onSubmit}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <Input id="email" name="email" type="email" autoComplete="email" autoFocus onChange={this.changeField.bind(this)}/>
+            </FormControl>
+            {/* {!localStorage.usertoken ? <div>ASDSADASDADADSADA</div> : <div>} */}
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.changeField.bind(this)}/>
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="secondary" />}
+              label="Remember my email and password"
+            />
+            <Typography variant="subtitle1" gutterBottom >
+              If you're not a member yet,
+            <Button className={classes.button} style={{ textTransform: 'none', textAlign: "center" }} color="secondary" onClick={() => { this.props.registerCallback() }}>Register here!</Button>
+            </Typography>
+            <Button
+              fullWidth
+              type="submit"
+              variant="contained"
+              color="secondary"
+              className={classes.submit}
+            >
+              Log in!
           </Button>
-        </form>
-      </div>
-    </main>
-  );
+          </form>
+        </div>
+      </main>
+    );
+  }
 }
 
-SignIn.propTypes = {
+LoginForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+export default withRouter(withStyles(styles)(LoginForm));

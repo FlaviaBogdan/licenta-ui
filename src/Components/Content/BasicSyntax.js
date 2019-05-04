@@ -23,7 +23,7 @@ const styles = theme => ({
         flexGrow: 1,
     },
     card: {
-        minHeight: 180,
+        minHeight: 190,
         backgroundColor : '#F0F0F0',
     },
     heading: {
@@ -148,7 +148,7 @@ function BasycSyntax(props) {
                                 </Grid>
                             ))}
                         </Grid>
-                        <Divider/>
+                        <Divider style={{marginTop:'18px'}}/>
                     </Grid>
                     <Grid item xs={12}>
                         <Typography variant="h6" gutterBottom>Puncte importante</Typography>

@@ -35,6 +35,7 @@ class CustomList extends React.Component {
 
   handleClickAboutJava = (event) => {
     this.setState(state => ({ open: !state.open }));
+    this.props.onSelectNewSubchapter(this.props.chapter.chapterName);
     console.log(this.props.chapter.subChapters);
   };
 
@@ -45,7 +46,7 @@ class CustomList extends React.Component {
       <div >
         {!loadAsh.isEmpty(this.props.chapter.subChapters) && (
           <div>
-            <ListItem button onClick={this.handleClickAboutJava}>
+            <ListItem button onClick={this.handleClickAboutJava} >
               <ListItemIcon>
                 <ChapterIcon className={classes.icon} />
               </ListItemIcon>
@@ -63,7 +64,7 @@ class CustomList extends React.Component {
         )}
         {loadAsh.isEmpty(this.props.chapter.subChapters) && (
           <div>
-            <ListItem button onClick={this.handleClickAboutJava}>
+            <ListItem button onClick={this.handleClickAboutJava} >
               <ListItemIcon>
                 <ChapterIcon className={classes.icon} />
               </ListItemIcon>
