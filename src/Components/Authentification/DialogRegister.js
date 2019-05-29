@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import RegisterForm from '../Authentification/RegisterForm';
+import RegisterForm from './RegisterForm';
 
 class DialogRegister extends React.Component {
   state = {
@@ -29,7 +29,7 @@ class DialogRegister extends React.Component {
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          maxWidth='md'
+          maxWidth='lg'
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >

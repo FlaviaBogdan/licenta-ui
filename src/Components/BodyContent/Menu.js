@@ -31,11 +31,20 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
+let chapterName;
+
 class Menu extends React.Component {
   constructor(props) {
     super(props);
+    if(this.props.location.param1){
+      chapterName=this.props.location.param1;
+    }
+    if(!this.props.location.param1){
+      chapterName="Ce este Java?";
+    }
     this.state = {
-      selectedSubchapter: "Ce este Java?",
+      
+      selectedSubchapter: chapterName,
 
     };
     this.selectedSubchapter = this.selectedSubchapter.bind(this);

@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Typography } from "@material-ui/core";
+import Statistics from '../Layouts/Statistics/Statistics';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
@@ -12,9 +13,10 @@ import Button from '@material-ui/core/Button';
 import LearningMenu from './Menu'
 import Profile from '../Layouts/Profile'
 import HomePage from '../Layouts/Home'
+import { withRouter } from 'react-router-dom'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import DialogLogin from '../Dialogs/DialogLogin'
-import DialogRegister from '../Dialogs/DialogRegister'
+import DialogLogin from '../Authentification/DialogLogin'
+import DialogRegister from '../Authentification/DialogRegister'
 
 const styles = theme => ({
   root: {
@@ -95,12 +97,12 @@ class ClippedDrawer extends React.Component {
     this.setState({ [dialogName]: true });
   }
 
-  callbackFromDialogLogin(open, openRegisterForm){
-    this.setState({registerDialogOpen: open, loginDialogOpen: false});
+  callbackFromDialogLogin(open, openRegisterForm) {
+    this.setState({ registerDialogOpen: open, loginDialogOpen: false });
     console.log("called from callbackDialog");
-    if(openRegisterForm){
+    if (openRegisterForm) {
       console.log(this.state.registerDialogOpen);
-       this.setState({registerDialogOpen:true});
+      this.setState({ registerDialogOpen: true });
       console.log(this.state.registerDialogOpen);
     }
   }
@@ -124,53 +126,63 @@ class ClippedDrawer extends React.Component {
   handleChange = (event, value) => {
     this.setState({ value });
   };
+  logOut(e) {
+    e.preventDefault()
+    localStorage.removeItem('usertoken')
+    this.props.history.push('/')
+  }
 
   render() {
     const { classes } = this.props;
 
     return (
-      <Router>
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-          <img src={require('../Content/Icons/JavaIcon.png')} style={{width:"50px",height:"50px"}} />
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              Learn Java
-            </Typography>
-            <div className={classes.grow} />
-            
-            <Button color="inherit" component={Link} to="/">Acasa</Button>
-            <Button color="inherit" component={Link} to="/invata/">Invata</Button>
-            <Button color="secondary" onClick={() => this.openRegisterForm("loginDialogOpen")}>Autentificare</Button>
-            <Button color="inherit" component={Link} to="/profil/">Profil</Button>
-            {this.state.registerDialogOpen && <DialogRegister open={this.state.registerDialogOpen} callback={(open) => {this.setState({registerDialogOpen:open})}} />}
-            {this.state.loginDialogOpen && <DialogLogin open={this.state.loginDialogOpen} callback={(open,openRegistrationForm) => this.callbackFromDialogLogin(open,openRegistrationForm)} />}
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Switch>
-    
-    <Route exact path='/'  component={HomePage} />
-    <Route path='/profil/' component={Profile} />
-    <Route path='/invata/' component={LearningMenu} />
-   
-
-</Switch> 
-      </div>
+      <React.Fragment>
       
-      </Router>
+        <div className={classes.root}>
+          <CssBaseline />
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <img src={require('../Content/Icons/JavaIcon.png')} style={{ width: "50px", height: "50px" }} />
+              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+                Learn Java
+            </Typography>
+              <div className={classes.grow} />
+
+              <Button color="inherit" component={Link} to="/">Acasa</Button>
+              <Button color="inherit" component={Link} to="/invata/">Invata</Button>
+              {localStorage.usertoken && (
+              <Button color="inherit" component={Link} to="/profil/">Profil</Button>
+ )}
+              {localStorage.usertoken && (
+              <Button color="inherit" component={Link} to="/statistici/">Statistici</Button>
+              )}
+              {!localStorage.usertoken ? 
+              <Button color="secondary" onClick={() => this.openRegisterForm("loginDialogOpen")}>Autentificare</Button> :
+                <Button color="secondary" onClick={this.logOut.bind(this)} component={Link} to="/">Deconectare</Button>}
+
+              {this.state.registerDialogOpen && <DialogRegister open={this.state.registerDialogOpen} callback={(open) => { this.setState({ registerDialogOpen: open }) }} />}
+              {this.state.loginDialogOpen && <DialogLogin open={this.state.loginDialogOpen} callback={(open, openRegistrationForm) => this.callbackFromDialogLogin(open, openRegistrationForm)} />}
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                />
+              </div>
+            </Toolbar>
+          </AppBar>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/profil/' component={Profile} />
+        <Route path='/invata/' component={LearningMenu} />
+        <Route path='/statistici/' component={Statistics} />
+        </div>
+      </React.Fragment>
+
     )
   }
 }
@@ -180,4 +192,4 @@ ClippedDrawer.propTypes = {
 };
 
 
-export default withStyles(styles)(ClippedDrawer);
+export default withRouter(withStyles(styles)(ClippedDrawer));

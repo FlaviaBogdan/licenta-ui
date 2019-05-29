@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { Typography, Divider } from "@material-ui/core";
+import { Typography, Divider, Button } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,7 +10,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import {getExercises} from '../../utils/UserFunctions'
 
 
 const styles = theme => ({
@@ -116,16 +116,38 @@ const reasons = [
 
 ];
 
-function CenteredGrid(props) {
-    const { classes } = props;
+
+
+class WhatIsJava extends React.Component {
+   
+
+    state={
+        listExercises: [],
+        loading: true
+    }
+    componentWillMount() {
+        getExercises(2,'Ce este Java?').then(exercises =>{
+            this.setState({listExercises: exercises, loading: false});
+        })
+        console.log( this.state.listExercises)
+    }
+
+    componentDidMount() {
+          window.scrollTo(0, 0)
+        }
+
+    render(){
+    const { classes } = this.props;
 
     return (
+        this.state.loading? null :
         <div>
             <div className={classes.root}>
                 <CssBaseline />
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
-                        <Typography variant="h5" gutterBottom>Ce inseamna Java? La ce se foloseste?</Typography>
+                
+                        <Typography variant="h5" gutterBottom>Ce inseamna Java? La ce se foloseste?  </Typography>
                         <Typography variant="subtitle1" color="inherit" paragraph>
                             Java este un limbaj de programare orientat-obiect de nivel înalt. Este un limbaj de programare cu scop general creat de Sun Microsystems.
                              </Typography>
@@ -161,6 +183,7 @@ function CenteredGrid(props) {
                         </Grid>
                         <Typography variant="subtitle1" paragraph>
                         </Typography>
+                
                         <ExpansionPanel>
                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.epSumaary}>
                                 <Typography className={classes.heading} > Într-un grafic publicat de <a href="http://www.github.com" target="_blank"> Github.com</a> este prezentat clasamentul popularității limbajelor de programare de-a lungul anilor.</Typography>
@@ -239,7 +262,7 @@ function CenteredGrid(props) {
                 </Grid>
             </div>
 
-            <ExpansionPanel>
+            <ExpansionPanel  style={{marginBottom:'20px'}}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.epNextSummary} >
                     <img src={require('./Icons/Question_Icon.png')} />
                     <Typography className={classes.heading} style={{ marginLeft: '5px', }} >
@@ -257,9 +280,10 @@ function CenteredGrid(props) {
         </div>
     )
 }
+}
 
-CenteredGrid.propTypes = {
+WhatIsJava.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredGrid);
+export default withStyles(styles)(WhatIsJava);

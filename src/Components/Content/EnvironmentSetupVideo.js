@@ -63,8 +63,14 @@ class Album extends React.Component {
     if(this.props.videoContent === "Structuri de date"){
       videos = require('./YoutubeContent/VideosDataStructures.json');
     }
+    if(this.props.videoContent !== "Sintaxa de baza" && this.props.videoContent !== "Structuri de date" && this.props.videoContent !== "Mostenire"){
+      videos = require('./YoutubeContent/VideosES.json');
+    }
 
   }
+  componentDidMount() {
+      window.scrollTo(0, 0)
+    }
   render(){
   const { classes } = this.props;
 

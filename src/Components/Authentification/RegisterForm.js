@@ -45,7 +45,8 @@ class RegisterForm extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
   }
 
@@ -53,125 +54,127 @@ class RegisterForm extends React.Component {
     e.preventDefault()
 
     const user = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password
     }
 
-    register(user).then(res => {
-      if (res === 201) {
-        login(user).then(res => {
-          if (res) {
-            this.props.history.push(`/`)
-            this.props.onClose();
-          }
+    if (this.state.password !== this.state.confirmPassword) {
+      console.log("PAROLA",this.state.password)
+      console.log("PAROLA conf",this.state.confirmPassword)
+        alert("Passwords do not match!");
+    } else {
+        register(user).then(res => {
+            if (res === 201) {
+                login(user).then(res => {
+                    if (res) {
+                        this.props.history.push(`/`)
+                        this.props.onClose();
+                    }
+                })
+            } else if (res === 400) {
+                alert("Email already in use");
+            } else {
+                alert("An error ocurred");
+            }
         })
-      } else if (res === 400) {
-        alert("Email already in use");
-      } else {
-        alert("An error ocurred");
-      }
-    })
-  }
+    }
+} 
 
   changeField = (event) => {
     let newUserToRegister = { ...this.state };
+    console.log( event.target.value);
     newUserToRegister[event.target.id] = event.target.value;
     this.setState({
-        ...newUserToRegister
+      ...newUserToRegister
     })
-}
+  }
 
   render() {
     const { classes } = this.props;
 
     return (
       <React.Fragment>
-          <main className={classes.main}>
-              <CssBaseline />
-              <div className={classes.paper}>
-                  <form className={classes.form} onSubmit={this.onSubmit}>
-                      <Grid container spacing={24}>
-                          <Grid item xs={12} sm={12}>
-                              <Typography component="h1" variant="h4" align="center">
-                                  Register
+        <main className={classes.main}>
+          <CssBaseline />
+          <div className={classes.paper}>
+            <form className={classes.form} onSubmit={this.onSubmit}>
+              <Grid container spacing={24}>
+                <Grid item xs={12} sm={12}>
+                  <Typography component="h1" variant="h4" align="center">
+                    Inregistreaza-te
                           </Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={12}>
-                              <Typography variant="subtitle1" gutterBottom style={{ textAlign: "center" }}>
-                                  Welcome to our small big family. Take a seat by the fire.
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <Typography variant="subtitle1" gutterBottom style={{ textAlign: "center" }}>
+                    Bun venit in mica marea noastra familie. Impreuna vom descoperii lucruri minunate!
                           </Typography>
-                          </Grid>
-                          <Grid item xs={12} sm={12}>
-                              <React.Fragment>
-                                  <Typography variant="subtitle1" gutterBottom>
-                                      Personal information
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <React.Fragment>
+                    <Typography variant="subtitle1" gutterBottom>
+                      Informatii personale
                               </Typography>
 
-                                  <Grid container spacing={24}>
-                                      <Grid item xs={12} sm={6}>
-                                          <FormControl margin="normal" required fullWidth>
-                                              <InputLabel htmlFor="firstName">First Name</InputLabel>
-                                              <Input id="firstName" name="firstName" autoFocus onChange={this.changeField} />
-                                          </FormControl>
-                                      </Grid>
-                                      <Grid item xs={12} sm={6}>
-                                          <FormControl margin="normal" required fullWidth>
-                                              <InputLabel htmlFor="lastName">Last Name</InputLabel>
-                                              <Input id="lastName" name="lastName" autoFocus onChange={this.changeField} />
-                                          </FormControl>
-                                      </Grid>
-
-                                      <Grid item xs={12}>
-                                          <FormControl margin="normal" required fullWidth>
-                                              <InputLabel htmlFor="email">Email</InputLabel>
-                                              <Input id="email" name="email" type="email" autoComplete="email" autoFocus onChange={this.changeField} />
-                                          </FormControl>
-                                      </Grid>
-
-                                      <Grid item xs={12}>
-                                      <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.changeField}/>
-      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={12}>
-                                          <TextField
-                                              id="Re-Password"
-                                              name="Re-Password"
-                                              type="password"
-                                              label="Confirm password"
-                                              onChange={this.changeField}
-                                              fullWidth
-                                              autoComplete="billing Password2"
-                                          />
-                                      </Grid>
-                                      <Grid item xs={12}>
-                                          <FormControlLabel
-                                              control={<Checkbox color="secondary" name="Terms" value="yes" />}
-                                              label="I accept the terms and conditions"
-                                          />
-                                      </Grid>
-                                  </Grid>
-
-                              </React.Fragment>
-                          </Grid>
-                          <Button
-        fullWidth
-        type="submit"
-        variant="contained"
-        color="secondary"
-        className={classes.submit}
-      >
-        Register!
-    </Button>
+                    <Grid container spacing={24}>
+                      <Grid item xs={12} sm={6}>
+                        <FormControl margin="normal" required fullWidth>
+                          <InputLabel htmlFor="firstName">Prenume</InputLabel>
+                          <Input id="firstName" name="firstName" autoFocus onChange={this.changeField} />
+                        </FormControl>
                       </Grid>
-                  </form>
-              </div>
-          </main>
+                      <Grid item xs={12} sm={6}>
+                        <FormControl margin="normal" required fullWidth>
+                          <InputLabel htmlFor="lastName">Nume</InputLabel>
+                          <Input id="lastName" name="lastName" autoFocus onChange={this.changeField} />
+                        </FormControl>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <FormControl margin="normal" required fullWidth>
+                          <InputLabel htmlFor="email">Email</InputLabel>
+                          <Input id="email" name="email" type="email" autoComplete="email" autoFocus onChange={this.changeField} />
+                        </FormControl>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <FormControl margin="normal" required fullWidth>
+                          <InputLabel htmlFor="password">Parola</InputLabel>
+                          <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.changeField} />
+                        </FormControl>
+                      </Grid>
+                      <Grid item xs={12}>
+                      <FormControl margin="normal" required fullWidth>
+                        <InputLabel htmlFor="confirmPassword">Confirmare parola</InputLabel>
+                          <Input name="confirmPassword" type="password" id="confirmPassword" autoComplete="current-password" onChange={this.changeField} />
+                        </FormControl>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <FormControlLabel
+                          control={<Checkbox color="secondary" name="Terms" value="yes" />}
+                          label="Accept termenii si conditiile"
+                        />
+                      </Grid>
+                    </Grid>
+
+                  </React.Fragment>
+                </Grid>
+                <Button
+                  fullWidth
+                  type="submit"
+                  variant="contained"
+                  color="secondary"
+                  className={classes.submit}
+                >
+                  Inregistrare
+    </Button>
+              </Grid>
+            </form>
+          </div>
+        </main>
       </React.Fragment>
-  );
+    );
   }
 }
 

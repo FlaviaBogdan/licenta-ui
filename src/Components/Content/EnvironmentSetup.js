@@ -121,9 +121,15 @@ const steps = [
 
 ];
 
-function CenteredGrid(props) {
-    const { classes } = props;
-
+class CenteredGrid extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount() {
+          window.scrollTo(0, 0)
+        }
+    render(){
+    const { classes } = this.props;
     return (
         <div className={classes.root}>
             <Grid container spacing={24}>
@@ -249,7 +255,7 @@ function CenteredGrid(props) {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item xs>
+                <Grid item xs  style={{marginBottom:'20px'}}>
                 <ExpansionPanel color="secondary">
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.epNextSummary} >
                 <img src={require('./Icons/Question_Icon.png')} />
@@ -271,6 +277,7 @@ function CenteredGrid(props) {
  
         </div >
     )
+}
 }
 
 CenteredGrid.propTypes = {

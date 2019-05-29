@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import DialogRegister from '../Dialogs/DialogRegister'
-import DialogLogin from '../Dialogs/DialogLogin'
+import DialogRegister from '../Authentification/DialogRegister'
+import DialogLogin from '../Authentification/DialogLogin'
 import Footer from './Footer'
 import Menu from '../BodyContent/Menu'
 const styles = theme => ({

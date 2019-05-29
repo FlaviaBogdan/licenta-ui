@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import ButtonQuiz from './OpenQuizDialog'
 import Grid from '@material-ui/core/Grid';
 import { Typography } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
@@ -132,8 +133,15 @@ const steps = [
 
 ];
 
-function CenteredGrid(props) {
-    const { classes } = props;
+class CenteredGrid extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount() {
+          window.scrollTo(0, 0)
+        }
+    render(){
+    const { classes } = this.props;
 
     return (
         <div className={classes.root}>
@@ -362,10 +370,14 @@ function CenteredGrid(props) {
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 </Grid>
+                <Grid item xs={12}>
+                        <ButtonQuiz Name={"Structuri de date"}/>
+                    </Grid>
             </Grid>
         </div >
 
     )
+}
 }
 
 CenteredGrid.propTypes = {

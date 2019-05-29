@@ -11,8 +11,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { withRouter } from 'react-router-dom'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
 import { login } from '../../utils/UserFunctions';
+import withStyles from '@material-ui/core/styles/withStyles';
+
+
 
 const styles = theme => ({
   main: {
@@ -104,18 +106,18 @@ class LoginForm extends React.Component {
               <InputLabel htmlFor="email">Email</InputLabel>
               <Input id="email" name="email" type="email" autoComplete="email" autoFocus onChange={this.changeField.bind(this)}/>
             </FormControl>
-            {/* {!localStorage.usertoken ? <div>ASDSADASDADADSADA</div> : <div>} */}
+  
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password">Password</InputLabel>
+              <InputLabel htmlFor="password">Parola</InputLabel>
               <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.changeField.bind(this)}/>
             </FormControl>
             <FormControlLabel
               control={<Checkbox value="remember" color="secondary" />}
-              label="Remember my email and password"
+              label="Aminteste-ti user-ul si parola mea"
             />
             <Typography variant="subtitle1" gutterBottom >
-              If you're not a member yet,
-            <Button className={classes.button} style={{ textTransform: 'none', textAlign: "center" }} color="secondary" onClick={() => { this.props.registerCallback() }}>Register here!</Button>
+              Daca inca nu ai un cont,
+            <Button className={classes.button} style={{ textTransform: 'none', textAlign: "center" }} color="secondary" onClick={() => { this.props.registerCallback() }}>inregistreaza-te aici!</Button>
             </Typography>
             <Button
               fullWidth
@@ -124,7 +126,7 @@ class LoginForm extends React.Component {
               color="secondary"
               className={classes.submit}
             >
-              Log in!
+              Autentificare
           </Button>
           </form>
         </div>

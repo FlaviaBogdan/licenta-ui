@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Quiz from '../Dialogs/Quiz'
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import DialogRegister from '../Authentification/DialogRegister'
+import SvgIcon from '@material-ui/core/SvgIcon';
 import { Typography, Divider } from "@material-ui/core";
+import Fab from '@material-ui/core/Fab';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import Card from '@material-ui/core/Card';
+import ButtonQuiz from './OpenQuizDialog'
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import TableCell from '@material-ui/core/TableCell';
@@ -74,12 +79,29 @@ const styles = theme => ({
     epContent: {
         backgroundColor: '#D8D8D8',
     },
+    extendedIcon: {
+        marginRight: theme.spacing.unit,
+    },
+    fab: {
+        margin: theme.spacing.unit,
+        position: 'fixed',
+        bottom: theme.spacing.unit * 2,
+        right: theme.spacing.unit * 2,
+    },
 
     dividerStyle: {
         border: 0,
         borderTopWidth: '4em',
         margin: '20px',
-    }
+    },
+    right: {
+        position: 'absolute',
+        right: '0px',
+        padding: '10px',
+        marginTop: theme.spacing.unit * 2,
+        marginBottom: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 5,
+      }
 
 });
 
@@ -87,6 +109,14 @@ let id = 0;
 function createData(w1, w2, w3, w4, w5, w6) {
     id += 1;
     return { id, w1, w2, w3, w4, w5, w6 };
+}
+
+function Tick(props) {
+    return (
+        <SvgIcon {...props}>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </SvgIcon>
+    );
 }
 
 const rows = [
@@ -119,8 +149,34 @@ const listBasicSyntax = [
     },
 
 ];
-function BasycSyntax(props) {
-    const { classes } = props;
+
+class BasycSyntax extends React.Component {
+    constructor(props) {
+        super(props);
+      }
+      state ={
+        quizDialogOpen: false,
+        loginDialogOpen: false,
+        showJavaChapter: false,
+      }
+      openQuiz(dialogName) {
+        this.setState({ [dialogName]: true });
+      }
+    
+      callbackFromDialogLogin(open, openQuiz){
+        this.setState({quizDialogOpen: open, loginDialogOpen: false});
+        console.log("called from callbackDialog");
+        if(openQuiz){
+          console.log(this.state.quizDialogOpen);
+           this.setState({quizDialogOpen:true});
+          console.log(this.state.quizDialogOpen);
+        }
+      }
+    componentDidMount() {
+          window.scrollTo(0, 0)
+        }
+    render(){
+    const { classes } = this.props;
     return (
         <div>
             <div className={classes.root}>
@@ -453,13 +509,13 @@ public static void main(String []args) {
                             O interfata defineste metodele pe care o clasa derivata(subclasa) ar trebui sa le foloseasca, dar implementarea metodelor tine de subclasa, nu de superclasa.
                         </Typography>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} style={{marginBottom:'20px'}}>
                         <ExpansionPanel>
                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.epNextSummary} >
                                 <img src={require('./Icons/Question_Icon.png')} />
                                 <Typography className={classes.heading} style={{ marginLeft: '5px' }} >
                                     Ce urmeaza?
-                    </Typography>
+                                </Typography>
                             </ExpansionPanelSummary>
                             <ExpansionPanelDetails className={classes.epNextContent}>
                                 <div>
@@ -470,11 +526,15 @@ public static void main(String []args) {
                             </ExpansionPanelDetails>
                         </ExpansionPanel>
                     </Grid>
+                    <Grid item xs={12}>
+                        <ButtonQuiz Name={"Sintaxa de baza"}/>
+                    </Grid>
                 </Grid>
             </div>
 
         </div>
     )
+}
 }
 
 BasycSyntax.propTypes = {

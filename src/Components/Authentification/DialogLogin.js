@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import LoginForm from '../Authentification/LoginForm';
+import LoginForm from './LoginForm';
 
 
 class DialogLogin extends React.Component {

@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Typography, Divider } from "@material-ui/core";
+import ButtonQuiz from './OpenQuizDialog'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -119,8 +120,15 @@ const listBasicSyntax = [
     },
 
 ];
-function BasycSyntax(props) {
-    const { classes } = props;
+class Inheritance extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount() {
+          window.scrollTo(0, 0)
+        }
+    render(){
+    const { classes } = this.props;
     return (
         <div>
             <div className={classes.root}>
@@ -683,7 +691,7 @@ public class Van extends Vehicle {
    
                     <Divider />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12}  style={{marginBottom:'20px'}}>
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.epNextSummary} >
                             <img src={require('./Icons/Question_Icon.png')} />
@@ -700,15 +708,19 @@ public class Van extends Vehicle {
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 </Grid>
+                <Grid item xs={12}>
+                        <ButtonQuiz Name={"Mostenire"}/>
+                    </Grid>
                 </Grid>
         </div>
 
         </div >
     )
 }
+}
 
-BasycSyntax.propTypes = {
+Inheritance.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(BasycSyntax);
+export default withStyles(styles)(Inheritance);
